@@ -21,9 +21,6 @@ public class User {
 	
 	private String lastName;
 
-	
-	
-	
-	
+   int a=100;
 	
 }
