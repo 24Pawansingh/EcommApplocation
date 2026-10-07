@@ -2,6 +2,7 @@ package com.ecom.app.Services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,17 +28,9 @@ public class UserService {
 
 	}
 
-	public User fetchUsers(Long id) {
+	public Optional<User> fetchUsers(Long id) {
 
-		for (User user : userList) {
-			if (user.getId().equals(id)) {
-
-				return user;
-			}
-
-		}
-
-		return null;
+		return userList.stream().filter(user -> user.getId().equals(id)).findFirst();
 
 	}
 
